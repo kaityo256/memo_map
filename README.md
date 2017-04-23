@@ -1,6 +1,6 @@
 [Japanese](README_ja.md)/ English
 
-# Hash_map for memoization
+# unordered_map for memoization
 
 ## Summary
 
