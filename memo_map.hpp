@@ -31,4 +31,7 @@ public:
     }
     return std::unordered_map<Key, Value>::operator[](key);
   }
+  bool has_key(const Key &key) const {
+    return (this->find(key) != this->end());
+  }
 };

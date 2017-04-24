@@ -11,7 +11,19 @@ Japanese/ [English](README.md)
 
 ## 使い方
 
-`memo_map.hpp`をインクルードするだけで使えます。使い方は`std::unordered_map`と全く同じですが、コンストラクタで最大サイズを取り、そのサイズに到達すると、保持するデータを半分にします。その時、値の大きさでソートし、値が大きいものだけ半分残すようにします。
+`memo_map.hpp`をインクルードするだけで使えます。普通のメモ化と同様に、何か`key`に対する値を計算する関数`calculate_value_of`を、以下のようにラップして使います。
+
+```
+memo_map<int, int> m(100000);
+
+int
+func(int key){
+  if(m.has_key(key))return m[key];
+  else return calculate_value_of(key);
+}
+```
+
+使い方は`std::unordered_map`と全く同じですが、コンストラクタで最大サイズを取り、そのサイズを超えて要素を保持しません。最大サイズに到達すると、保持するデータを半分にします。その時、値の大きさでソートし、値が大きいものだけ半分残すようにします。
 
 ## サンプル
 

@@ -12,6 +12,19 @@ we want to limit the maximum number of elements.
 Therefore, I prepare a map which halves its data
 when the number of elements reaches the specified value.
 
+## How to use
+
+Use in the same way as `std::map`, for example,
+
+```
+memo_map<int, int> m(100000);
+
+int
+func(int key){
+  if(m.has_key(key))return m[key];
+  else return calculate_value_of(key);
+}
+```
 
 ## Usage
 
@@ -104,4 +117,4 @@ And here are the results of `test_double.cpp`.
     test008->0.9965
 
 In both sample, the maximum number of elements is set to be 20.
-When the 20th element is added, then `memo_map` reduces its data so that the upper half of values are remained. After the reduction, the 20th element is added. Therefore, the last pair, `test019->0.0000` is remained in `Cached Data`. 
+When the 20th element is added, then `memo_map` reduces its data so that the upper half of values are remained. After the reduction, the 20th element is added. Therefore, the last pair, `test019->0.0000` is remained in `Cached Data`.
